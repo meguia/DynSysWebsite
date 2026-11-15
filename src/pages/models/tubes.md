@@ -39,7 +39,7 @@ U &= (1+\eta x)v.
 \end{aligned}
 $$
 
-$\eta=0$ gives linear coupling. The [uncoupled oscillator](/models/rayleigh-van-der-pol/) is recovered at $\kappa=0$; $\beta=1$ does not guarantee harmonic motion when pressure feedback is present. The live delay range is $0.5\leq\tau\leq3$.
+$\eta=0$ gives linear coupling. The [uncoupled oscillator](/models/oscillators/#rayleigh) is recovered at $\kappa=0$; $\beta=1$ does not guarantee harmonic motion when pressure feedback is present. The live delay range is $0.5\leq\tau\leq3$.
 
 <h2 id="squared-conductance">Squared-conductance valve</h2>
 

@@ -3,9 +3,9 @@ import '../styles/site.css';
 import 'katex/dist/katex.min.css';
 
 const { frontmatter } = Astro.props;
-const title = frontmatter?.title ?? Astro.props.title ?? 'RealTimeAudioVisualDynamics';
+const title = frontmatter?.title ?? Astro.props.title ?? 'DynSys';
 const description = frontmatter?.description ?? Astro.props.description ??
-  'Model equations, numerical implementations and recordings for RealTimeAudioVisualDynamics.';
+  'Model equations, numerical implementations and recordings.';
 const path = Astro.url.pathname;
 ---
 <!doctype html>
@@ -24,8 +24,8 @@ const path = Astro.url.pathname;
     <header class="site-header wrap">
       <a class="site-name" href="/" aria-label="DynSys home">DynSys</a>
       <nav aria-label="Main navigation">
-        <a href="/models/" aria-current={path.startsWith('/models/') ? 'page' : undefined}>Models</a>
-        <a href="/#recordings">Recordings</a>
+        <a href="/models/" aria-current={(path === '/' || path.startsWith('/models/')) ? 'page' : undefined}>Models</a>
+        <a href="/recordings/" aria-current={path.startsWith('/recordings/') ? 'page' : undefined}>Recordings</a>
         <a href="/start/" aria-current={path === '/start/' ? 'page' : undefined}>Implementation</a>
       </nav>
     </header>

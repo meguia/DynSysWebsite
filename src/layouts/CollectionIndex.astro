@@ -1,0 +1,24 @@
+---
+import Site from './Site.astro';
+
+interface Props {
+  section: 'models' | 'recordings';
+}
+
+const { section } = Astro.props;
+const title = section === 'models' ? 'Models' : 'Recordings';
+const collections = [
+  ['oscillators', 'Self oscillators'],
+  ['chaos', 'Chaos'],
+  ['tubes', 'Tubes'],
+  ['saxophone', 'Saxophone'],
+];
+---
+<Site title={title}>
+  <h1>{title}</h1>
+  <ul class="collection-links">
+    {collections.map(([slug, label]) => (
+      <li><a href={`/${section}/${slug}/`}>{label}</a></li>
+    ))}
+  </ul>
+</Site>
