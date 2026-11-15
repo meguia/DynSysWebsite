@@ -4,31 +4,29 @@ title: Model index
 description: Implemented oscillator, chaos, tube and saxophone models.
 ---
 
-[Model guide: equations, parameter ranges and references (PDF)](/model-guide.pdf).
-
 ## Oscillators
 
 | Model | Formulation |
 | --- | --- |
 | [Rayleigh–van der Pol](/models/rayleigh-van-der-pol/) | ODE; velocity- and position-dependent damping |
-| [Bowed oscillator](/model-guide.pdf#page=2) | ODE; arctangent friction law |
-| [LuGre](/model-guide.pdf#page=3) | ODE; dynamic bristle friction |
-| [Hindmarsh–Rose](/model-guide.pdf#page=3) | Three-variable ODE |
-| [KKS](/model-guide.pdf#page=4) | Three-variable ODE; quasiperiodic regimes |
-| [Quadratic Wright DDE](/model-guide.pdf#page=4) | Scalar retarded DDE; variable delay |
+| [Bowed oscillator](/models/oscillators/#bowed) | ODE; arctangent friction law |
+| [LuGre](/models/oscillators/#lugre) | ODE; dynamic bristle friction |
+| [Hindmarsh–Rose](/models/oscillators/#hindmarsh-rose) | Three-variable ODE |
+| [KKS](/models/oscillators/#kks) | Three-variable ODE; quasiperiodic regimes |
+| [Quadratic Wright DDE](/models/oscillators/#wright) | Scalar retarded DDE; variable delay |
 
 ## Chaos
 
 | Model | Formulation |
 | --- | --- |
-| [Lorenz](/model-guide.pdf#page=5) | Three-variable ODE |
-| [Bouali](/model-guide.pdf#page=5) | Four-variable ODE |
-| [Thomas](/model-guide.pdf#page=5) | ODE; cyclic sine coupling |
-| [Rössler](/model-guide.pdf#page=6) | Three-variable ODE |
-| [Forced Duffing](/model-guide.pdf#page=6) | ODE with periodic forcing |
-| [Chua](/model-guide.pdf#page=6) | ODE; piecewise-linear characteristic |
-| [Arneodo–Coullet–Tresser](/model-guide.pdf#page=7) | Cubic jerk equation |
-| [Cubic DDE](/model-guide.pdf#page=7) | Scalar retarded DDE; variable delay |
+| [Lorenz](/models/chaos/#lorenz) | Three-variable ODE |
+| [Bouali](/models/chaos/#bouali) | Four-variable ODE |
+| [Thomas](/models/chaos/#thomas) | ODE; cyclic sine coupling |
+| [Rössler](/models/chaos/#rossler) | Three-variable ODE |
+| [Forced Duffing](/models/chaos/#duffing) | ODE with periodic forcing |
+| [Chua](/models/chaos/#chua) | ODE; piecewise-linear characteristic |
+| [Arneodo–Coullet–Tresser](/models/chaos/#arneodo) | Cubic jerk equation |
+| [Cubic DDE](/models/chaos/#cubic) | Scalar retarded DDE; variable delay |
 
 The scalar DDEs use the coordinates $x(t)$, $x(t-\tau)$ and $x(t-2\tau)$ for 3D visualization; the first two are used in 2D. Chaotic regimes depend on the parameter values.
 
@@ -36,11 +34,11 @@ The scalar DDEs use the coordinates $x(t)$, $x(t-\tau)$ and $x(t-2\tau)$ for 3D 
 
 | Model | Coupling |
 | --- | --- |
-| [Rayleigh–van der Pol with a tube](/model-guide.pdf#page=9) | Nonlinear oscillator–pressure coupling; linear at $\eta=0$ |
-| [Squared-conductance valve](/model-guide.pdf#page=10) | Conductance quadratic in valve opening |
-| [Bernoulli valve](/model-guide.pdf#page=10) | Bernoulli flow with reed closure |
+| [Rayleigh–van der Pol with a tube](/models/tubes/#rayleigh) | Nonlinear oscillator–pressure coupling; linear at $\eta=0$ |
+| [Squared-conductance valve](/models/tubes/#squared-conductance) | Conductance quadratic in valve opening |
+| [Bernoulli valve](/models/tubes/#bernoulli) | Bernoulli flow with reed closure |
 
-Each model has a neutral DDE formulation and a modal ODE approximation. The round-trip delay $\tau$ is adjustable during integration. Modal approximations are available in Explore; Play uses the DDE formulations. [Resonator equations (PDF, p. 8)](/model-guide.pdf#page=8).
+Each model has a neutral DDE formulation and a modal ODE approximation. The round-trip delay $\tau$ is adjustable during integration. Modal approximations are available in Explore; Play uses the DDE formulations. [Resonator equations](/models/tubes/#neutral).
 
 ## Saxophone
 

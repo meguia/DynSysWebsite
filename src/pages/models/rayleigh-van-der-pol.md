@@ -21,5 +21,4 @@ $$
 
 is harmonic, with angular frequency $\omega_0$ in model time, independent of $\alpha$. This frequency statement concerns the settled orbit, not parameter-change transients.
 
-[Parameter ranges and references (PDF, p. 2)](/model-guide.pdf#page=2).
-The [tube formulation (PDF, p. 9)](/model-guide.pdf#page=9) adds nonlinear pressure coupling to the same oscillator.
+The [tube formulation](/models/tubes/#rayleigh) adds nonlinear pressure coupling to the same oscillator.

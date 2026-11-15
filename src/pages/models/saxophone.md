@@ -28,7 +28,7 @@ $$
 
 Here $\gamma$ is blowing pressure and $\zeta$ the flow parameter. Each pair $(q_n,s_n)$ represents one mode; $\alpha_n$, $\omega_n$ and $C_n$ are its damping rate, angular frequency and real residue.
 
-## Impedance data
+## Impedance banks
 
 | Bank | Fits | Modes per fingering |
 | --- | --- | --- |
@@ -47,9 +47,4 @@ This is an experimental coupling transfer between fixed-fingering impedance fits
 
 Audio uses mouthpiece pressure; bell and tone-hole radiation are not modelled. Diagnostics include state trajectories, the pressure spectrum, modal activity and fundamental pitch (note and cents; A4 = 440 Hz). The diagnostic signals precede gain and reverb.
 
-## Implementation and data sources
-
-- [Model implementation and numerical validation](https://github.com/meguia/RealTimeAudioVisualDynamics.jl/tree/main/impedances)
-- [Original OpenWind fits](https://github.com/meguia/RTSax-Experiment/tree/main/src/impedances/alto)
-- [Installation and execution](/start/)
-- [OpenWind scale recording](/#recordings)
+[Implementation](/start/) · [OpenWind scale recording](/#recordings)
