@@ -34,7 +34,7 @@ Open the printed URL, including its `#` token. Select the audio output, wait for
 
 ## Vulkan
 
-Requires Linux and Vulkan 1.2+ with buffer device addresses and variable pointers. Graphics use Julia 1.12; audio uses Julia 1.13 in a separate process. After [Vulkan setup](https://github.com/meguia/RealTimeAudioVisualDynamicsVulkan.jl#installation):
+Requires Vulkan 1.2+ with buffer device addresses and variable pointers. Graphics use Julia 1.12; audio uses Julia 1.13 in a separate process. After [Vulkan setup](https://github.com/meguia/RealTimeAudioVisualDynamicsVulkan.jl#installation):
 
 ```sh
 julia +1.12 --project=. app.jl --view=saxophone --impedances=openwind

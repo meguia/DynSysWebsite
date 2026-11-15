@@ -15,6 +15,6 @@ With an older system Node.js, prefix the npm commands with `npx --yes --package=
 
 Pages are in `src/pages/`, styling in `src/styles/site.css`, and recordings in `public/media/`. Models and Recordings each have four collections: Self oscillators, Chaos, Tubes and Saxophone.
 
-The two saxophone recordings from 15 November 2026 have their final two seconds removed: OpenWind scale (53.38 s) and measured fingering tremolos (81.88 s). Both retain 1080p/60 fps video and stereo audio. Original captures remain outside the repository.
+Saxophone recordings retain 1080p/60 fps video and stereo audio, with their final two seconds removed. Original captures remain outside the repository.
 
 Pushes to `main` build and publish the site through `.github/workflows/deploy.yml`. GitHub Pages uses GitHub Actions as its publishing source; the site is public and independent of OpenAI hosting.
