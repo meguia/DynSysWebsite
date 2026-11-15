@@ -1,0 +1,65 @@
+---
+import Site from '../layouts/Site.astro';
+---
+<Site>
+  <section class="intro" aria-labelledby="intro-title">
+    <div>
+      <p class="eyebrow">Real-time audio / visual dynamics</p>
+      <h1 id="intro-title">Dynamics<br /><em>in sound.</em></h1>
+    </div>
+    <div class="intro-text">
+      <p>Hear an oscillation. Follow a trajectory.<br class="desktop-break" /> Play with the equations.</p>
+      <p class="muted">RealTimeAudioVisualDynamics turns evolving mathematical models into sound and motion, from self-sustained oscillators to wind instruments.</p>
+      <a class="text-link" href="/models/">Explore the models <span aria-hidden="true">↗</span></a>
+    </div>
+  </section>
+
+  <section id="recordings" class="recording" aria-labelledby="recording-title">
+    <div class="section-heading">
+      <div>
+        <p class="eyebrow">01 / Recording</p>
+        <h2 id="recording-title">OpenWind saxophone</h2>
+      </div>
+      <p class="recording-meta">A simple scale <span aria-hidden="true">/</span> 00:53</p>
+    </div>
+    <figure>
+      <video controls playsinline preload="none" width="1920" height="1080"
+        poster="/media/openwind-saxophone-scale.jpg" aria-label="OpenWind saxophone: a simple scale"
+        aria-describedby="recording-caption">
+        <source src="/media/openwind-saxophone-scale.mp4" type="video/mp4" />
+        <p><a href="/media/openwind-saxophone-scale.mp4">Download the OpenWind scale recording</a>.</p>
+      </video>
+      <figcaption id="recording-caption">
+        <span>Recorded in the Vulkan interface · <time datetime="2026-11-15">15 November 2026</time> · Stereo</span>
+        <a href="/media/openwind-saxophone-scale.mp4" download>Download MP4 <span aria-hidden="true">↓</span></a>
+      </figcaption>
+    </figure>
+    <div class="recording-notes">
+      <p>A reed oscillator coupled to eight acoustic modes. Changing the fingering changes the instrument’s impedance while the simulation continues.</p>
+      <a class="text-link" href="/models/saxophone/">Inside the saxophone model <span aria-hidden="true">↗</span></a>
+    </div>
+  </section>
+
+  <section class="collections" aria-labelledby="collections-title">
+    <div class="section-heading">
+      <div>
+        <p class="eyebrow">02 / Model collections</p>
+        <h2 id="collections-title">Different equations.<br />Different ways to listen.</h2>
+      </div>
+      <a class="text-link" href="/model-guide.pdf">Read the model guide <span class="file-label">PDF ↗</span></a>
+    </div>
+    <div class="collection-list">
+      <a href="/models/#oscillators"><span class="collection-number">01</span><h3>Oscillators</h3><p>Friction, self-oscillation and bursts.</p><span aria-hidden="true">↗</span></a>
+      <a href="/models/#chaos"><span class="collection-number">02</span><h3>Chaos</h3><p>Irregular motion, audible structure.</p><span aria-hidden="true">↗</span></a>
+      <a href="/models/#tubes"><span class="collection-number">03</span><h3>Tubes</h3><p>Oscillators and valves with acoustic feedback.</p><span aria-hidden="true">↗</span></a>
+      <a href="/models/saxophone/"><span class="collection-number">04</span><h3>Saxophone</h3><p>A reed, a resonator and a set of fingerings.</p><span aria-hidden="true">↗</span></a>
+    </div>
+  </section>
+
+  <section class="closing" aria-labelledby="closing-title">
+    <p class="eyebrow">From listening to playing</p>
+    <h2 id="closing-title">Take the controls.</h2>
+    <p>Explore parameters and save presets, or play inside a rotating 3D trajectory. Julia runs the models and audio; Vulkan or a browser draws the motion.</p>
+    <a class="button" href="/start/">Run the applications locally <span aria-hidden="true">↗</span></a>
+  </section>
+</Site>

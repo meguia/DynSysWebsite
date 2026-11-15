@@ -1,0 +1,48 @@
+---
+import '../styles/site.css';
+import 'katex/dist/katex.min.css';
+
+const { frontmatter } = Astro.props;
+const title = frontmatter?.title ?? Astro.props.title ?? 'Dynamics in sound';
+const description = frontmatter?.description ?? Astro.props.description ??
+  'Listen to dynamical systems. Recordings and models from RealTimeAudioVisualDynamics.';
+const path = Astro.url.pathname;
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content={description} />
+    <meta name="theme-color" content="#101919" />
+    <title>{title} · DynSys</title>
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <header class="site-header wrap">
+      <a class="wordmark" href="/" aria-label="DynSys home">DynSys<span aria-hidden="true">.</span></a>
+      <nav aria-label="Main navigation">
+        <a href="/#recordings">Recordings</a>
+        <a href="/models/" aria-current={path.startsWith('/models/') ? 'page' : undefined}>Models</a>
+        <a href="/start/" aria-current={path === '/start/' ? 'page' : undefined}>Run locally <span aria-hidden="true">↗</span></a>
+      </nav>
+    </header>
+    <main id="main" class="wrap">
+      {frontmatter ? (
+        <article class="article">
+          <header class="page-heading">
+            <p class="eyebrow">{frontmatter.label}</p>
+            <h1>{title}</h1>
+            <p class="lede">{description}</p>
+          </header>
+          <div class="prose"><slot /></div>
+        </article>
+      ) : <slot />}
+    </main>
+    <footer class="site-footer wrap">
+      <p>RealTimeAudioVisualDynamics<br /><span>Dynamical systems as instruments.</span></p>
+      <a href="https://github.com/meguia/RealTimeAudioVisualDynamics.jl">Source on GitHub <span aria-hidden="true">↗</span></a>
+    </footer>
+  </body>
+</html>
