@@ -17,4 +17,4 @@ Pages are in `src/pages/`, shared styling in `src/styles/site.css`, and recordin
 
 The first recording, `openwind-saxophone-scale.mp4`, is the 15 November 2026 OpenWind scale, trimmed from 55.383333 to 53.383333 seconds. It retains 1080p/60 fps and stereo audio; the original `2026-11-15 16-25-04.mp4` stays outside this repository. The poster comes from 12 seconds into the recording.
 
-Hosting is not configured. This repository is independent of the Julia applications.
+Sites hosting is configured for [DynSys](https://dynsys-audio.jubilanthymn3.chatgpt.site), initially private. `.openai/hosting.json` identifies the site and its static build. This repository remains independent of the Julia applications.
