@@ -31,6 +31,8 @@ h1, h2, h3 { color: var(--heading); line-height: 1.2; font-weight: 600; }
 h1 { font-size: 1.65rem; margin: 0 0 28px; overflow-wrap: anywhere; }
 h2 { font-size: 1.2rem; margin: 30px 0 12px; scroll-margin-top: 20px; }
 h3 { font-size: 1.05rem; margin: 24px 0 10px; }
+.prose hr { border: 0; border-top: 1px solid var(--separator); margin: 34px 0 28px; }
+.prose hr + h2 { margin-top: 0; }
 p { margin: 14px 0; }
 li { margin-block: 5px; }
 ul { padding-left: 22px; }

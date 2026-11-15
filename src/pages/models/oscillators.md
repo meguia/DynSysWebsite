@@ -1,10 +1,12 @@
 ---
 layout: ../../layouts/Site.astro
 title: Self oscillators
-description: Governing equations for the oscillator collection.
+description: Model equations, parameters and principal bifurcations.
 ---
 
-<h2 id="rayleigh">Rayleigh–van der Pol</h2>
+Bifurcation thresholds refer to fixed parameter values; frequencies are expressed in model time.
+
+<h2 id="rayleigh">Rayleigh–van der Pol oscillator</h2>
 
 $$
 \begin{aligned}
@@ -13,17 +15,13 @@ $$
 \end{aligned}
 $$
 
-Here $\alpha$ is the linear excitation coefficient, $\omega_0$ the undamped natural angular frequency, and $0\leq\beta\leq1$ the normalized position-damping coefficient. The case $\beta=0$ is the Rayleigh oscillator.
+$\alpha$ is linear excitation, $\omega_0$ the natural angular frequency, and $\beta$ the relative strength of position-dependent damping. The interval $0\leq\beta\leq1$ connects the Rayleigh oscillator ($\beta=0$) to Harmonic Rayleigh ($\beta=1$).
 
-For $\beta=1$ and fixed $\alpha>0$, the invariant orbit
+For $\omega_0^2>0$, rest loses stability in a supercritical Hopf bifurcation at $\alpha=0$. At $\beta=1$ and fixed $\alpha>0$, the attracting orbit is the ellipse $v^2+\omega_0^2x^2=\alpha$: displacement and velocity amplitudes are $\sqrt\alpha/\omega_0$ and $\sqrt\alpha$, while frequency remains $\omega_0/(2\pi)$ in model time. Away from $\beta=1$, excitation can also change the frequency.
 
-$$
-v^2+\omega_0^2x^2=\alpha
-$$
+---
 
-is harmonic, with angular frequency $\omega_0$ in model time, independent of $\alpha$. This frequency statement concerns the settled orbit, not parameter-change transients.
-
-<h2 id="bowed">Bowed oscillator</h2>
+<h2 id="bowed">Bowed oscillator with regularized friction</h2>
 
 $$
 \begin{aligned}
@@ -32,9 +30,13 @@ $$
 \end{aligned}
 $$
 
-$V$ is bow velocity and $\mu$ the friction coefficient. The arctangent regularizes sliding reversal; exact sticking is not imposed.
+A moving bow drives a spring–mass oscillator through velocity-dependent friction. $V$ is bow speed and $\mu$ sets friction strength; the arctangent smooths sliding reversal, while the exponential gives velocity weakening. Exact sticking is not imposed.
 
-<h2 id="lugre">LuGre</h2>
+For $\mu>0$, the displaced rest state loses oscillatory stability when $|V|\approx0.1345$, at the maximum of the friction curve. Crossing into the velocity-weakening region supplies effective negative damping and permits self-oscillation. At $V=0$, motion decays; at $\mu=0$, the oscillator is conservative.
+
+---
+
+<h2 id="lugre">LuGre (Lund–Grenoble) stick–slip oscillator</h2>
 
 $$
 \begin{aligned}
@@ -44,9 +46,13 @@ $$
 \end{aligned}
 $$
 
-$x$ is spring extension, $v$ slider velocity and $z$ bristle displacement. Controls are pulling speed $V$, contact depth $d$, Stribeck speed $v_s$, bristle stiffness $\sigma_0$, bristle damping $\sigma_1$ and viscous damping $\sigma_2$.
+The state variables are spring extension $x$, slider velocity $v$ and mean bristle deflection $z$. Pulling speed $V$ drives the mass; contact depth $d$ sets normal force, and $v_s$ sets the Stribeck velocity scale. The coefficients $\sigma_0$, $\sigma_1$ and $\sigma_2$ describe bristle stiffness, bristle damping and viscous friction.
 
-<h2 id="hindmarsh-rose">Hindmarsh–Rose</h2>
+Changing speed or normal load can destabilize steady sliding and produce stick–slip cycles. The oscillatory instability depends on the elastic and damping parameters as well as the velocity-weakening friction curve; there is no parameter-independent critical speed. Mass and spring stiffness are fixed at $0.1$ kg and $1000$ N/m.
+
+---
+
+<h2 id="hindmarsh-rose">Hindmarsh–Rose neuronal oscillator</h2>
 
 $$
 \begin{aligned}
@@ -56,9 +62,13 @@ $$
 \end{aligned}
 $$
 
-$I$ is the drive and $r$ the adaptation rate.
+Fast activation $x$ and recovery $y$ interact with the slow adaptation variable $z$. The drive $I$ controls excitation and $r$ sets the adaptation rate, governing the separation between individual spikes and the burst envelope.
 
-<h2 id="kks">KKS</h2>
+For $r=0.006$, a rest-state Hopf bifurcation occurs near $I=1.359$, with a small interval of hysteresis below onset. Increasing $I$ produces spike-adding transitions between bursts, irregular bursting around $I=3.0$–$3.2$, and tonic spiking around $I=3.5$–$4.0$. These latter intervals are numerical regime examples, not exact bifurcation boundaries.
+
+---
+
+<h2 id="kks">Kuznetsov–Kuznetsov–Stankevich (KKS) oscillator</h2>
 
 $$
 \begin{aligned}
@@ -68,12 +78,18 @@ $$
 \end{aligned}
 $$
 
-$\mu$ is the energy-supply parameter and $\omega$ the carrier angular frequency in model time.
+The variable $z$ stores and replenishes excitation, $\mu$ controls energy supply, and $\omega$ sets the carrier angular frequency. Interaction between the carrier and the slower energy cycle permits two-frequency quasiperiodic motion on a torus; $\mu=0.5$, $\omega=2\pi$ is a reference example.
 
-<h2 id="wright">Quadratic Wright DDE</h2>
+Varying $\mu$ or $\omega$ changes amplitude modulation and can enter periodic locking regions. In the high-frequency limit the torus-bifurcation boundary approaches $\mu=1$, outside the displayed $\mu\leq0.9$ range; it is not an exact finite-frequency threshold. Lower carrier frequencies can also produce chaos.
+
+---
+
+<h2 id="wright">Wright quadratic delay equation</h2>
 
 $$
 \dot x(t)=-x(t-\tau)\,[1+x(t)].
 $$
 
-The live delay range is $0.5\leq\tau\leq2.5$. The plotted coordinates are $x(t)$, $x(t-\tau)$ and, in 3D, $x(t-2\tau)$; only one scalar equation is integrated.
+Delayed negative feedback controls the growth of a single scalar state. The delay $\tau$ is the only model parameter; increasing it changes the feedback phase and can destabilize the equilibrium.
+
+For histories above $-1$, $x=0$ is attracting up to $\tau=\pi/2\approx1.571$. A supercritical Hopf bifurcation creates periodic oscillation above this value. The available range is $0.5\leq\tau\leq2.5$; the plotted coordinates $x(t)$, $x(t-\tau)$ and, in 3D, $x(t-2\tau)$ are samples of the same evolving state.

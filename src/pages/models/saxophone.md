@@ -4,7 +4,7 @@ title: Saxophone
 description: Reed-contact equations, impedance fits and fingering transitions.
 ---
 
-## Governing equations
+## Single-reed saxophone with modal bore
 
 Let $x$ denote reed displacement, $v$ its velocity, $h=1+x$ the opening, and $p=\sum_{n=1}^{8}q_n$ the mouthpiece pressure. Time is in milliseconds.
 
@@ -26,7 +26,11 @@ U=\zeta h^+\frac{\gamma-p}{\left[(\gamma-p)^2+\varepsilon\right]^{1/4}},
 \qquad \varepsilon=0.001.
 $$
 
-Here $\gamma$ is blowing pressure and $\zeta$ the flow parameter. Each pair $(q_n,s_n)$ represents one mode; $\alpha_n$, $\omega_n$ and $C_n$ are its damping rate, angular frequency and real residue.
+The normalized blowing pressure $\gamma$ drives the reed and airflow; $\zeta$ combines rest opening and flow coupling. Each pair $(q_n,s_n)$ represents one acoustic mode: $\alpha_n$ sets its damping rate, $\omega_n$ its angular frequency and $C_n$ its pressure–flow coupling through the impedance residue. The fixed reed coefficients set its mechanical resonance and damping. The $h^-$ term regularizes reed contact with the mouthpiece lay, and $\varepsilon$ smooths closure and flow reversal.
+
+## Oscillation regimes
+
+As $\gamma$ varies, steady flow can lose stability in a Hopf bifurcation. Different periodic branches can coexist, allowing hysteresis and jumps between registers; stronger motion can bring the reed into contact with the lay. The thresholds depend on $\zeta$ and the full impedance of the selected fingering, so there is no common critical pressure for the two banks. A map of these boundaries has not been established for all fitted impedances.
 
 ## Impedance banks
 
