@@ -1,0 +1,21 @@
+---
+import Site from '../../layouts/Site.astro';
+
+const media = `${import.meta.env.BASE_URL}media/`;
+const slug = 'bouali-system';
+const title = 'Bouali system';
+---
+<Site title="Chaos" description="Chaos recordings.">
+  <h1>Chaos</h1>
+  <figure id={slug}>
+    <video controls playsinline preload="none" width="1920" height="1080"
+      poster={`${media}${slug}.jpg`} aria-label={title}
+      aria-describedby={`${slug}-caption`}>
+      <source src={`${media}${slug}.mp4`} type="video/mp4" />
+      <p><a href={`${media}${slug}.mp4`}>{title} (MP4)</a></p>
+    </video>
+    <figcaption id={`${slug}-caption`}>
+      <strong>{title}</strong>. <time datetime="2026-10-31">31 October 2026</time>; 173.33 s; stereo. <a href={`${media}${slug}.mp4`} download>MP4</a>
+    </figcaption>
+  </figure>
+</Site>
