@@ -1,13 +1,12 @@
 ---
 layout: ../layouts/Site.astro
-title: Run it locally
-label: From watching to playing
-description: Julia computes the dynamics and audio. Choose a browser interface or the native Vulkan application.
+title: Implementation
+description: Runtime requirements, installation and execution commands.
 ---
 
 ## Browser
 
-Install [Juliaup](https://julialang.org/install/) and Git. The browser application requires Julia 1.13 and a browser with WebGL 2. Clone the shared model library and browser application beside each other; these commands require GitHub access to both repositories.
+Requires Julia 1.13, WebGL 2, Git and authenticated GitHub access. Keep the shared library and interface checkouts in the same parent directory. With [Juliaup](https://julialang.org/install/):
 
 ```sh
 juliaup add 1.13
@@ -17,37 +16,40 @@ cd RealTimeAudioVisualDynamicsVR.jl
 julia +1.13 --project=. setup.jl
 ```
 
-Setup installs dependencies and prepares caches. The first setup can take several minutes.
-
-Start the saxophone with the OpenWind impedances:
+Setup installs dependencies and compiles caches; the first run can take several minutes. Launch one application at a time:
 
 ```sh
 julia +1.13 --project=. app.jl --view=explore --models=saxophone --impedances=openwind
-```
-
-Open the complete URL printed in the terminal, including its `#` token. Select an audio output, wait for **ready**, and press **Start**. Keep Julia running while using the interface.
-
-For oscillator controls or a 3D performance view, use:
-
-```sh
 julia +1.13 --project=. app.jl --view=explore --models=oscillators
 julia +1.13 --project=. app.jl --view=play --models=3d
 ```
 
-Run one application at a time. **Explore** provides sliders, waveforms, XY plots and presets. **Play** provides a rotating 3D trajectory with keyboard controls. The saxophone uses a specialized Explore layout.
+Open the printed URL, including its `#` token. Select the audio output, wait for **ready**, then press **Start**. Keep Julia running throughout the session.
 
-## Native Vulkan
+| View | Interface |
+| --- | --- |
+| Explore | Parameters, time series, XY plots and named presets |
+| Play | 3D trajectories and keyboard controls |
+| Saxophone | Specialized Explore layout with fingering selection |
 
-The recording uses the Linux Vulkan application. It requires a suitable Vulkan 1.2+ driver, Julia 1.12 for graphics and Julia 1.13 for audio.
+## Vulkan
 
-Follow the [Vulkan installation instructions](https://github.com/meguia/RealTimeAudioVisualDynamicsVulkan.jl#installation), then launch its saxophone layout:
+Requires Linux and Vulkan 1.2+ with buffer device addresses and variable pointers. Graphics use Julia 1.12; audio uses Julia 1.13 in a separate process. After [Vulkan setup](https://github.com/meguia/RealTimeAudioVisualDynamicsVulkan.jl#installation):
 
 ```sh
 julia +1.12 --project=. app.jl --view=saxophone --impedances=openwind
 ```
 
-## Presets and performance
+## Presets
 
-Name and save presets in Explore. In Play, press **Q** followed by two digits to select a preset, then hold **↑** to move toward it or **↓** to return. **Shift** makes the transition faster; releasing the arrow pauses it. **P** saves the current parameters.
+Name and save presets in Explore. Play provides the following controls:
 
-The browser application also supports Play in Meta Quest. Its [README](https://github.com/meguia/RealTimeAudioVisualDynamicsVR.jl) covers headset setup, audio routing and the full keyboard controls.
+| Key | Action |
+| --- | --- |
+| Q, then two digits | Select preset |
+| Hold ↑ / ↓ | Move toward the selected preset / return |
+| Shift + ↑ / ↓ | Faster transition |
+| Release arrow | Pause transition |
+| P | Save current parameters |
+
+[Browser and Meta Quest setup; complete controls](https://github.com/meguia/RealTimeAudioVisualDynamicsVR.jl).

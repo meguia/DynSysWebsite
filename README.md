@@ -1,6 +1,6 @@
 # DynSys
 
-A static website for RealTimeAudioVisualDynamics: recordings, model descriptions and local running instructions. Built with Astro, Markdown and KaTeX.
+Internal reference for RealTimeAudioVisualDynamics: model equations, implementation notes and recordings. Built with Astro, Markdown and KaTeX.
 
 Requires Node.js 22.23.4+ and npm 9.6.5+.
 

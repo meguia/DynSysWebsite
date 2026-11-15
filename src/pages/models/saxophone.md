@@ -1,19 +1,12 @@
 ---
 layout: ../../layouts/Site.astro
-title: The saxophone
-label: Reed / acoustic modes
-description: One reed, eight resonances, and an impedance for each fingering.
+title: Saxophone
+description: Reed-contact equations, impedance fits and fingering transitions.
 ---
 
-[Watch the OpenWind scale →](/#recordings)
+## Governing equations
 
-Air flowing through the reed opening excites the instrument’s acoustic modes. Their combined pressure acts back on the reed. Blowing pressure $\gamma$ and the flow parameter $\zeta$ control this interaction.
-
-The **OpenWind** bank contains 26 simulated impedance fits. The **Measured** bank contains 34 fits to distinct measurements. Both use eight modes per fingering, with their own frequencies, damping and coupling strengths. New measurements can replace the coefficients without changing the model equations.
-
-## Fixed fingering
-
-Let $x$ be reed displacement, $v$ its velocity, $h=1+x$ the opening, and $p=\sum_{n=1}^{8}q_n$ the mouthpiece pressure. With time in milliseconds, the implemented model is
+Let $x$ denote reed displacement, $v$ its velocity, $h=1+x$ the opening, and $p=\sum_{n=1}^{8}q_n$ the mouthpiece pressure. Time is in milliseconds.
 
 $$
 \begin{aligned}
@@ -33,28 +26,30 @@ U=\zeta h^+\frac{\gamma-p}{\left[(\gamma-p)^2+\varepsilon\right]^{1/4}},
 \qquad \varepsilon=0.001.
 $$
 
-Each pair $(q_n,s_n)$ describes one damped acoustic mode. Its coefficients $\alpha_n$, $\omega_n$ and $C_n$ come from the selected impedance fit. Audio uses mouthpiece pressure; bell and tone-hole radiation are not modelled.
+Here $\gamma$ is blowing pressure and $\zeta$ the flow parameter. Each pair $(q_n,s_n)$ represents one mode; $\alpha_n$, $\omega_n$ and $C_n$ are its damping rate, angular frequency and real residue.
 
-## Changing fingering
+## Impedance data
 
-The legato transition keeps the reed moving while coupling transfers from the outgoing eight-mode bank to the incoming one. The outgoing modes retain their state; the incoming modes start with zero stored energy. The same smooth gains weight both the flow driving each bank and its contribution to mouthpiece pressure.
+| Bank | Fits | Modes per fingering |
+| --- | --- | --- |
+| OpenWind | 26 simulated impedances | 8 |
+| Measured | 34 distinct measurements | 8 |
 
-This is an experimental transition between fixed-fingering impedance fits. It does not simulate the detailed motion of opening and closing tone holes. **Non-legato** also lowers blowing pressure to zero and restores it over the selected duration.
+Coefficients are fitted separately for each fingering. Replacement measurements use the same equations and coefficient convention.
 
-## Reading the display
+## Fingering transitions
 
-The upper traces show the selected model variables, and the XY plot shows their relationship. The target impedance panel overlays the live pressure spectrum and markers for the activity of each mode. The pitch readout estimates the fundamental, with cents relative to concert pitch.
+Legato uses two eight-mode banks coupled to one reed. The outgoing bank retains its state; the incoming bank starts with zero stored energy. Smooth gains weight both flow drive and pressure readout. Non-legato additionally lowers $\gamma$ to zero and restores it over the transition duration.
 
-The plots use the model signals before gain and reverb. Changing an audio effect therefore leaves the dynamical trajectory unchanged.
+This is an experimental coupling transfer between fixed-fingering impedance fits; tone-hole motion is not modelled.
 
-## Run it
+## Output and diagnostics
 
-After [installing the browser application](/start/), run:
+Audio uses mouthpiece pressure; bell and tone-hole radiation are not modelled. Diagnostics include state trajectories, the pressure spectrum, modal activity and fundamental pitch (note and cents; A4 = 440 Hz). The diagnostic signals precede gain and reverb.
 
-```sh
-julia +1.13 --project=. app.jl --view=explore --models=saxophone --impedances=openwind
-```
+## Implementation and data sources
 
-Choose fingerings with the buttons or Page Up / Page Down. The transition slider sets the duration. Select Measured to use the measurement bank.
-
-The [implementation and impedance notes](https://github.com/meguia/RealTimeAudioVisualDynamics.jl/tree/main/impedances) document the coefficient convention and numerical validation. The [OpenWind data](https://github.com/meguia/RTSax-Experiment/tree/main/src/impedances/alto) provide the original simulated fits.
+- [Model implementation and numerical validation](https://github.com/meguia/RealTimeAudioVisualDynamics.jl/tree/main/impedances)
+- [Original OpenWind fits](https://github.com/meguia/RTSax-Experiment/tree/main/src/impedances/alto)
+- [Installation and execution](/start/)
+- [OpenWind scale recording](/#recordings)
