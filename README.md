@@ -18,3 +18,5 @@ Pages are in `src/pages/`, styling in `src/styles/site.css`, and recordings in `
 Saxophone recordings retain 1080p/60 fps video and stereo audio, with their final two seconds removed. Original captures remain outside the repository.
 
 Pushes to `main` build and publish the site through `.github/workflows/deploy.yml`. GitHub Pages uses GitHub Actions as its publishing source; the site is public and independent of OpenAI hosting.
+
+Original code: [PolyForm Noncommercial 1.0.0](LICENSE). Recordings and poster images: [CC BY 4.0](public/media/LICENSE.txt), including commercial reuse with attribution. Third-party material retains its own terms.

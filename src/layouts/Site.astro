@@ -38,5 +38,10 @@ const base = import.meta.env.BASE_URL;
         </article>
       ) : <slot />}
     </main>
+    <footer class="site-footer wrap">
+      <span>© 2026 Manuel Eguia</span>
+      <span>Software: <a href={`${base}licenses/software.txt`} rel="license">PolyForm Noncommercial</a></span>
+      <span>Recordings: <a href={`${base}media/LICENSE.txt`} rel="license">CC BY 4.0</a></span>
+    </footer>
   </body>
 </html>
