@@ -42,6 +42,7 @@ td:first-child { width: 36%; }
 .collection-links { list-style: none; padding: 0; margin: 0; }
 .collection-links li { margin-block: 18px; }
 figure { margin: 0; }
+figure + figure { margin-top: 36px; }
 video { display: block; width: 100%; height: auto; aspect-ratio: 16 / 9; background: #111; border: 1px solid var(--rule); }
 figcaption { font-size: .86rem; line-height: 1.5; margin-top: 10px; }
 figcaption a:last-child { white-space: nowrap; }

@@ -47,4 +47,4 @@ This is an experimental coupling transfer between fixed-fingering impedance fits
 
 Audio uses mouthpiece pressure; bell and tone-hole radiation are not modelled. Diagnostics include state trajectories, the pressure spectrum, modal activity and fundamental pitch (note and cents; A4 = 440 Hz). The diagnostic signals precede gain and reverb.
 
-[Implementation](/start/) · [OpenWind scale recording](/recordings/saxophone/)
+[Implementation](../../start/) · [Recordings](../../recordings/saxophone/)

@@ -6,6 +6,7 @@ interface Props {
 }
 
 const { section } = Astro.props;
+const base = import.meta.env.BASE_URL;
 const title = section === 'models' ? 'Models' : 'Recordings';
 const collections = [
   ['oscillators', 'Self oscillators'],
@@ -18,7 +19,7 @@ const collections = [
   <h1>{title}</h1>
   <ul class="collection-links">
     {collections.map(([slug, label]) => (
-      <li><a href={`/${section}/${slug}/`}>{label}</a></li>
+      <li><a href={`${base}${section}/${slug}/`}>{label}</a></li>
     ))}
   </ul>
 </Site>

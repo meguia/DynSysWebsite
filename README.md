@@ -1,6 +1,6 @@
 # DynSys
 
-Internal reference for RealTimeAudioVisualDynamics: model equations, implementation notes and recordings. Built with Astro, Markdown and KaTeX.
+[Website](https://meguia.github.io/DynSysWebsite/): model equations, implementation notes and recordings for RealTimeAudioVisualDynamics. Built with Astro, Markdown and KaTeX.
 
 Requires Node.js 22.23.4+ and npm 9.6.5+.
 
@@ -13,8 +13,8 @@ Open the local address printed in the terminal. `npm run build` creates `dist/`;
 
 With an older system Node.js, prefix the npm commands with `npx --yes --package=node@22.23.4 --package=npm@10.9.4 --` to use a temporary compatible runtime.
 
-Pages are in `src/pages/`, shared styling in `src/styles/site.css`, and recordings in `public/media/`. Models and Recordings each have four collection pages: Self oscillators, Chaos, Tubes and Saxophone. Model descriptions use Markdown with LaTeX equations. Repository links and execution commands are confined to the Implementation page.
+Pages are in `src/pages/`, styling in `src/styles/site.css`, and recordings in `public/media/`. Models and Recordings each have four collections: Self oscillators, Chaos, Tubes and Saxophone.
 
-The first recording, `openwind-saxophone-scale.mp4`, is the 15 November 2026 OpenWind scale, trimmed from 55.383333 to 53.383333 seconds. It retains 1080p/60 fps and stereo audio; the original `2026-11-15 16-25-04.mp4` stays outside this repository. The poster comes from 12 seconds into the recording.
+The two saxophone recordings from 15 November 2026 have their final two seconds removed: OpenWind scale (53.38 s) and measured fingering tremolos (81.88 s). Both retain 1080p/60 fps video and stereo audio. Original captures remain outside the repository.
 
-Sites hosting is configured for [DynSys](https://dynsys-audio.jubilanthymn3.chatgpt.site), initially private. `.openai/hosting.json` identifies the site and its static build. This repository remains independent of the Julia applications.
+Pushes to `main` build and publish the site through `.github/workflows/deploy.yml`. GitHub Pages uses GitHub Actions as its publishing source; the site is public and independent of OpenAI hosting.

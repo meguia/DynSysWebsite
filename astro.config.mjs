@@ -4,7 +4,9 @@ import remarkMath from 'remark-math';
 import rehypeKatex from 'rehype-katex';
 
 export default defineConfig({
-  site: 'https://dynsys-audio.jubilanthymn3.chatgpt.site',
+  site: 'https://meguia.github.io',
+  base: '/DynSysWebsite',
+  trailingSlash: 'always',
   output: 'static',
   markdown: {
     processor: unified({
